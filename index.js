@@ -7,7 +7,7 @@ window.onload = init;
 	let term = ""; // we declared `term` out here because we will need it later
 	function getData(){
 		// 1 - main entry point to web service
-		const SERVICE_URL = "https://api.jikan.moe/v3/search/anime/?q=";
+		const SERVICE_URL = "https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/search/anime/?q=";
 		
 		// No API Key required!
 		
