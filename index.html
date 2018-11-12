@@ -15,8 +15,8 @@
 </header>
 
 <div class="searchsection">
-	<p>Search Term -&gt; <input id="searchterm" type="text" size="20" maxlength="20" autofocus value="" /></p>
-	<p><button type="button" id="search" class="green">Search!</button></p>
+	<span>Search Term -&gt; <input id="searchterm" type="text" size="20" maxlength="20" autofocus value="" />
+	<button type="button" id="search" class="green">Search!</button></span>
     
 	<select id="selections">
 		<option value="anime" selected>Anime</option>
@@ -25,6 +25,10 @@
 </div>
     
 <div class="advanced">
+    <label>Advanced Search</label>
+    
+    <br>
+    
 	<div class="option">
 	<h2>Number of Results</h2>
 	<select id="limit">
@@ -35,13 +39,13 @@
 	</select>
 	</div>
     
-	<br>
+	
 	
     <div class="option">
-		<label id="rating">Highest Rated?</label><input id="ratingCheck" type="checkbox">
+		<h2 id="rating">Highest Rated?</h2><input id="ratingCheck" type="checkbox">
 	</div>
 	
-	<br>
+	
 	
 	<div class="option">
 	<h2>Status</h2>
@@ -55,7 +59,7 @@
 	</select>
 	</div>
 	
-	<br>
+	
 	
 	<div class="option">
 	<h2>Maturity Rating</h2>
