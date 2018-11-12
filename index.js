@@ -7,9 +7,12 @@ window.onload = init;
 	let term = ""; // we declared `term` out here because we will need it later
 	function getData(){
 		// 1 - main entry point to web service
-		const SERVICE_URL = "https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/search/anime/?q=";
+		const SERVICE_URL = "https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/search/"; // anime/?q=";
 		
 		// No API Key required!
+        let selection = document.querySelector("#selections").value;
+        
+        let limit = document.querySelector("#limit").value;
 		
 		// 2 - build up our URL string
 		let url = SERVICE_URL;
@@ -27,7 +30,10 @@ window.onload = init;
 			document.querySelector("#debug").innerHTML = "<b>Enter a search term first!</b>";
 			return;
 		}
-		url += term;
+        
+        url += selection + "/";
+		url += "?q=" + term;
+        url += "&limit=" + limit;
         url += "&page=1";
 		
 		// 4 - update the UI
@@ -43,7 +49,6 @@ window.onload = init;
 		
 		
 	}
-	
 	
 	function jsonLoaded(obj){
 		// 6 - if there are no results, print a message and return
@@ -61,8 +66,11 @@ window.onload = init;
 			document.querySelector("#content").innerHTML = `<p><i>Problem! <b>No results for "${term}"</b></i></p>`;
 			return;
 		}
-		
-		
+        
+		if (document.querySelector("#ratingCheck").checked){
+            results = results.sort(function(a, b){return b.score - a.score});
+        }
+        
 		let bigString = `<p><i>Here are <b>${results.length}</b> results!</i></p>`; // ES6 String Templating
 		
 		for (let i=0;i<results.length;i++){
