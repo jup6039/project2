@@ -1,3 +1,45 @@
 * {
     
 }
+
+h1 {
+	text-align: center;
+}
+
+.searchsection, .advanced {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	text-align: center;
+}
+
+.option {
+	margin: 10px 20px 20px;
+	display: inline-block;
+	float: left;
+}
+
+#resultssection, #debug {
+	clear: both;
+}
+
+.result {
+	position: relative;
+	height: 400px;
+	width: 150px;
+	float: left;
+	border: 1px solid gray;
+	padding: 5px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.result img {
+	position: absolute;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	display: block;
+	height: 60%;
+	width: 70%;	
+}
