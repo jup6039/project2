@@ -14,6 +14,10 @@ window.onload = init;
         
         let limit = document.querySelector("#limit").value;
 		
+		let currentstatus = document.querySelector("#currentstatus").value;
+		
+		let maturity = document.querySelector("#maturity").value;
+		
 		// 2 - build up our URL string
 		let url = SERVICE_URL;
 		
@@ -35,6 +39,8 @@ window.onload = init;
 		url += "?q=" + term;
         url += "&limit=" + limit;
         url += "&page=1";
+		url += "?status=" + currentstatus;
+		url += "&rated=" + maturity;
 		
 		// 4 - update the UI
 		document.querySelector("#debug").innerHTML = `<b>Querying web service with:</b> <a href="${url}" target="_blank">${url}</a>`;
@@ -59,7 +65,6 @@ window.onload = init;
 		}
 		
 		// 7 - if there is an array of results, loop through them
-		// this is a weird API, the name of the key is the day of the week you asked for
 		let term2 = "results";
         let results = obj[term2];
 		if(!results){
@@ -77,7 +82,12 @@ window.onload = init;
 			let result = results[i];
 			let url = result.url;
 			let title = result.title;
-			var line = `<p class='result'><a href='${url}'>${title}</a></p>`;
+			let img = result.image_url;
+			let rating = result.rated;
+			let scoreRating = result.score;
+			var line = `<div class='result'><a href='${url}'>${title}</a><p>${rating}</p>`;
+			line += `<p>Rated: ${scoreRating}</p>`;
+			line += `<img src='${img}'></div>`;
 			bigString += line;
 		}
 		
