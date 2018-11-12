@@ -14,31 +14,70 @@
  <h1>AnimeManga Finder</h1>
 </header>
 
-<p>Search Term -&gt; <input id="searchterm" type="text" size="20" maxlength="20" autofocus value="" /></p>
-<p><button type="button" id="search" class="green">Search!</button></p>
+<div class="searchsection">
+	<p>Search Term -&gt; <input id="searchterm" type="text" size="20" maxlength="20" autofocus value="" /></p>
+	<p><button type="button" id="search" class="green">Search!</button></p>
     
-<select id="selections">
-    <option value="anime" selected>Anime</option>
-    <option value="manga">Manga</option>
-</select>
+	<select id="selections">
+		<option value="anime" selected>Anime</option>
+		<option value="manga">Manga</option>
+	</select>
+</div>
     
-<h2>Number of Results</h2>
-<select id="limit">
-    <option value="5">5</option>
-    <option value="10" selected>10</option>
-    <option value="25">25</option>
-    <option value="50">50</option>
-</select>
+<div class="advanced">
+	<div class="option">
+	<h2>Number of Results</h2>
+	<select id="limit">
+		<option value="5">5</option>
+		<option value="10" selected>10</option>
+		<option value="25">25</option>
+		<option value="50">50</option>
+	</select>
+	</div>
     
-<h2></h2>    
-    
-<label id="rating">Highest Rated?</label><input id="ratingCheck" type="checkbox">
-    
+	<br>
+	
+    <div class="option">
+		<label id="rating">Highest Rated?</label><input id="ratingCheck" type="checkbox">
+	</div>
+	
+	<br>
+	
+	<div class="option">
+	<h2>Status</h2>
+	<select id="currentstatus">
+		<option value="none" selected>None</option>
+		<option value="airing">Airing</option>
+		<option value="completed">Completed</option>
+		<option value="complete">Complete</option>
+		<option value="tba">TBA</option>
+		<option value="upcoming">Upcoming</option>
+	</select>
+	</div>
+	
+	<br>
+	
+	<div class="option">
+	<h2>Maturity Rating</h2>
+	<select id="maturity">
+		<option value="none" selected>None</option>
+		<option value="g">G</option>
+		<option value="pg">PG</option>
+		<option value="pg13">PG-13</option>
+		<option value="r17">R</option>
+		<option value="r">R+</option>
+		<option value="rx">Rx</option>
+	</select>
+	</div>
+</div>
+
 <p id="debug"></p>
+<div id="resultssection">
 <hr>
 <h2>Results</h2>
 <div id="content">
     <p>No data yet!</p>
+</div>
 </div>
  
 
