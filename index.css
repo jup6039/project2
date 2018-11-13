@@ -28,6 +28,19 @@ h1 {
 	<><><>float: left;
 }
 
+.genres {
+	column-count: 3;
+	column-gap: 40px;
+	column-width: 100px;
+	column-rule-style: solid;
+	margin: 10px 20px 20px;
+	display: inline-block;
+}
+
+.genre {
+	display: block;
+}
+
 #resultssection, #debug {
 	clear: both;
 }
