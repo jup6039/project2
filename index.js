@@ -6,7 +6,7 @@ window.onload = init;
 	
 	let term = ""; // we declared `term` out here because we will need it later
 	function getData(){
-		// 1 - main entry point to web service
+		// main entry point to web service
 		const SERVICE_URL = "https://cors-anywhere.herokuapp.com/https://api.jikan.moe/v3/search/"; // anime/?q=";
 		
 		// No API Key required!
@@ -18,10 +18,10 @@ window.onload = init;
 		
 		let maturity = document.querySelector("#maturity").value;
 		
-		// 2 - build up our URL string
+		// build up our URL string
 		let url = SERVICE_URL;
 		
-		// 3 - parse the user entered term we wish to search
+		// parse the user entered term we wish to search
 		term = document.querySelector("#searchterm").value;
 		
 		// get rid of any leading and trailing spaces
@@ -41,11 +41,22 @@ window.onload = init;
         url += "&page=1";
 		url += "?status=" + currentstatus;
 		url += "&rated=" + maturity;
+		url += "&genre=";
 		
-		// 4 - update the UI
+		// Genre Selection
+		let genre = document.getElementsByName("genre[]");
+		
+		for (let i = 0; i<genre.length; i++) {
+			if (genre[i].checked) 
+			{
+				url += genre[i].value + "%2C";
+			}
+		}
+		
+		// update the UI
 		document.querySelector("#debug").innerHTML = `<b>Querying web service with:</b> <a href="${url}" target="_blank">${url}</a>`;
 		
-		// 5- call the web service, and prepare to download the file
+		// call the web service, and prepare to download the file
 		$.ajax({
 		  dataType: "json",
 		  url: url,
@@ -57,14 +68,14 @@ window.onload = init;
 	}
 	
 	function jsonLoaded(obj){
-		// 6 - if there are no results, print a message and return
+		// if there are no results, print a message and return
 		if(obj.error){
 			let msg = obj.error;
 			document.querySelector("#content").innerHTML = `<p><i>Problem! <b>${msg}</b></i></p>`;
 			return; // Bail out
 		}
 		
-		// 7 - if there is an array of results, loop through them
+		// if there is an array of results, loop through them
 		let term2 = "results";
         let results = obj[term2];
 		if(!results){
@@ -91,6 +102,6 @@ window.onload = init;
 			bigString += line;
 		}
 		
-		// 8 - display final results to user
+		// display final results to user
 		document.querySelector("#content").innerHTML = bigString;
 	}
