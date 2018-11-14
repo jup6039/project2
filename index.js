@@ -2,6 +2,32 @@ window.onload = init;
 	
 	function init() {
 		document.querySelector("#search").onclick = getData;
+        
+        let label = document.getElementById("label");
+        
+        let advanced = document.getElementById("advanced");
+
+        console.log(advanced);
+
+        let open = false;
+
+        let openIt = function()
+        {
+            console.log("Open");
+    
+            if (!open){
+                advanced.style.height = "auto";
+        
+                open = !open;
+            }
+            else{
+                advanced.style.height = "18px";
+        
+                open = !open;
+            }
+        }
+
+        label.onclick = openIt;
 	}
 	
 	let term = ""; // we declared `term` out here because we will need it later
@@ -105,3 +131,5 @@ window.onload = init;
 		// display final results to user
 		document.querySelector("#content").innerHTML = bigString;
 	}
+
+

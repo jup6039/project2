@@ -4,6 +4,7 @@
 	<meta charset="utf-8" />
  	<title>AnimeManga Finder</title>
  	<link rel="stylesheet" type="text/css" href="index.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Archivo" rel="stylesheet">
 	<!-- Import jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="index.js"></script>
@@ -11,9 +12,17 @@
     
 <body>
 <header>
- <h1>AnimeManga Finder</h1>
+ <h1>AniManga</h1>
 </header>
+    
+<div class="body">
 
+<div class="intro">
+    <h2>Welcome to AniManga, the Online Anime/Manga Search Engine!</h2>
+    
+    <p>AniManga is a free webpage that allows you to search for any anime or manga that you wish. With this engine, you can choose a number of effective filter options to recieve the results that you want as fast as possible.</p>
+</div>
+    
 <div class="searchsection">
 	<span>Search Term -&gt; <input id="searchterm" type="text" size="20" maxlength="20" autofocus value="" />
 	<button type="button" id="search" class="green">Search!</button></span>
@@ -24,8 +33,10 @@
 	</select>
 </div>
     
-<div class="advanced">
+<div id="advanced">
+    <div id="label">
     <label>Advanced Search</label>
+        </div>
     
     <br>
     
@@ -75,7 +86,8 @@
 	</div>
 	
 	<!-- Genre Options -->
-	<div class="option">
+	<div class="option" id="genre">
+        <h2>Genres</h2>
 		<p class="genres">
         <label class="genre"><input type="checkbox" name="genre[]" value="1" />Action</label>
         <label class="genre"><input type="checkbox" name="genre[]" value="2" />Adventure</label>
@@ -88,7 +100,6 @@
         <label class="genre"><input type="checkbox" name="genre[]" value="9" />Ecchi</label>
         <label class="genre"><input type="checkbox" name="genre[]" value="10" />Fantasy</label>
 		<label class="genre"><input type="checkbox" name="genre[]" value="11" />Game</label>
-        <label class="genre"><input type="checkbox" name="genre[]" value="12" />Hentai</label>
         <label class="genre"><input type="checkbox" name="genre[]" value="13" />Historical</label>
         <label class="genre"><input type="checkbox" name="genre[]" value="14" />Horror</label>
         <label class="genre"><input type="checkbox" name="genre[]" value="15" />Kids</label>
@@ -133,6 +144,7 @@
 </div>
 </div>
  
+</div>
 
 </body>
 </html>
